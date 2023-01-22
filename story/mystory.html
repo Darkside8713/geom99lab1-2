@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>My story</title>
-        <link href="mystory.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1>My Story</h1>
-    
-    <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" async></script>
-    <script src="mystory.js"></script>
-    </body>
+<html lang="en">
+  <head>
+    <title>My Story</title>
+    <!-- Script retrieved from clustering.html -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Style also retrieved from clustering.html -->
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        #map {
+          height: 1000px;
+        }
 
+        /* Optional: Makes the sample page fill the window. */
+        html,
+        body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+.space {
+    padding-left: 20px;
+}
+    </style>
+ <script>
+ function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 3,
+      center: { lat: 43.43464856542449, lng: -27.339630669624995 },
+    });
+    
+    // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/polyline-simple#maps_polyline_simple-javascript
+    const flightPlanCoordinates = [
+        { lat: 25.253290925785134, lng: 55.36555478073066 },
+        { lat: 50.0379603540928, lng: 8.562533606281635 },
+        { lat: 45.46604694658018, lng: -73.74507989720708 },
+        { lat: 45.32915634620157, lng: -65.89039652882502 },
+    ] ;
+    const flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+    });
+
+  flightPath.setMap(map);
+}
+
+window.initMap = initMap;
+</script>
 </html>
