@@ -192,6 +192,7 @@ ysjMarker.addListener("click", () => {
   map,
     });
   });
- }
+
+}
 
 window.initMap = initMap;
