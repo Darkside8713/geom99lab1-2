@@ -23,6 +23,11 @@
     </style>
 <script>
  function initMap() {
+    const dxb = { lat: 25.253290925785134, lng: 55.36555478073066 };
+    const fra = { lat: 50.0379603540928, lng: 8.562533606281635 };
+    const yul = { lat: 45.46604694658018, lng: -73.74507989720708 };
+    const ysj = { lat: 45.32915634620157, lng: -65.89039652882502 };
+    const iconURL = { url: 'https://francis-soriano.github.io/geom99lab1/story/airport.png' }
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 3,
       center: { lat: 43.43464856542449, lng: -27.339630669624995 },
@@ -30,10 +35,7 @@
     
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/polyline-simple#maps_polyline_simple-javascript
     const flightPlanCoordinates = [
-        { lat: 25.253290925785134, lng: 55.36555478073066 },
-        { lat: 50.0379603540928, lng: 8.562533606281635 },
-        { lat: 45.46604694658018, lng: -73.74507989720708 },
-        { lat: 45.32915634620157, lng: -65.89039652882502 },
+      dxb, fra, yul, ysj
     ] ;
     const flightPath = new google.maps.Polyline({
         path: flightPlanCoordinates,
@@ -47,43 +49,60 @@
 
 
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/custom-markers
+// As well as: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+const dxbmarker = new google.maps.Marker({
+  position: dxb,
+  map: map,
+  icon: iconURL,
+  title: "Hello world!"
+});
 
-const iconBase =
-    "https://francis-soriano.github.io/geom99lab1/story/";
-  const icons = {
-    airports: {
-      icon: iconBase + "airport.png"
-    }
-  };
-  const features = [
-    {
-      position: new google.maps.LatLng(-33.91721, 151.2263),
-      type: "airports",
-    },
-    {
-      position: new google.maps.LatLng(-33.91539, 151.2282),
-      type: "airports",
-    },
-    {
-      position: new google.maps.LatLng(-33.91747, 151.22912),
-      type: "airports",
-    },
-    {
-      position: new google.maps.LatLng(-33.9191, 151.22907),
-      type: "airports"
-    }
-  ];
+const infowindow = new google.maps.infowindow({
+  content: "This is my marker."
+});
 
-  // Create markers.
-  for (let i = 0; i < features.length; i++) {
-    const marker = new google.maps.Marker({
-      position: features[i].position,
-      icon: icons[features[i].type].icon,
-      map: map,
-    });
-  }
+marker.addListener('click',function() {
+  infowindow.open(map, marker);
+});
  }
+
+// The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+// const contentString =
+//     '<div id="content">' +
+//     '<div id="siteNotice">' +
+//     "</div>" +
+//     '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+//     '<div id="bodyContent">' +
+//     "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
+//     "sandstone rock formation in the southern part of the " +
+//     "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
+//     "south west of the nearest large town, Alice Springs; 450&#160;km " +
+//     "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
+//     "features of the Uluru - Kata Tjuta National Park. Uluru is " +
+//     "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
+//     "Aboriginal people of the area. It has many springs, waterholes, " +
+//     "rock caves and ancient paintings. Uluru is listed as a World " +
+//     "Heritage Site.</p>" +
+//     '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
+//     "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
+//     "(last visited June 22, 2009).</p>" +
+//     "</div>" +
+//     "</div>";
+//   const infowindow = new google.maps.InfoWindow({
+//     content: contentString,
+//     ariaLabel: "Uluru",
+//   });
+
+//   marker.addListener("click", () => {
+//     infowindow.open({
+//       anchor: marker,
+//       map,
+//     });
+//   });
+// }
+
 window.initMap = initMap;
+
 </script>
 </head>
 <body>
