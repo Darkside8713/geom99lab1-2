@@ -74,61 +74,149 @@
 
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/custom-markers
 // As well as: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
-const dxbmarker = new google.maps.Marker({
-  position: dxb,
-  map: map,
-  icon: iconURL,
-  title: "Dubai Airport"
-});
-const contentString =
+// And also: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+
+const dxbContentString =
     '<div id="content">' +
     '<div id="siteNotice">' +
     "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+    '<h1 id="firstHeading" class="firstHeading">Dubai</h1>' +
     '<div id="bodyContent">' +
-    "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-    "sandstone rock formation in the southern part of the " +
-    "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-    "south west of the nearest large town, Alice Springs; 450&#160;km " +
-    "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-    "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-    "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-    "Aboriginal people of the area. It has many springs, waterholes, " +
-    "rock caves and ancient paintings. Uluru is listed as a World " +
-    "Heritage Site.</p>" +
-    '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-    "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-    "(last visited June 22, 2009).</p>" +
+    "<p><b>Dubai International Airport</b>, known by the airport code <b>DXB</b>, is the largest " +
+    "international airport in the United Arab Emirates. It is one of " +
+    "the world's busiest airports -- the busiest for Airbus A380 and Boeing " +
+    "B777 movements. The airport is the hub for Emirates, the largest airline " +
+    "in the Middle East. The airline operates out of the airport's " +
+    "Terminal 3.</p>" +
+    '<p>Attribution: Dubai International Airport, <a href="https://en.wikipedia.org/wiki/Dubai_International_Airport">' +
+    "https://en.wikipedia.org/wiki/Dubai_International_Airport</a> " +
+    "(last visited January 25, 2023).</p>" +
     "</div>" +
     "</div>";
 
-const infowindow = new google.maps.infowindow({
-  content: conentString,
-  ariaLabel: "Uluru",
-});
+const dxbinfowindow = new google.maps.InfoWindow({
+  content: dxbContentString,
+  ariaLabel: "Dubai Airport",
+  });
+const dxbMarker = new google.maps.Marker({
+  position: dxb,
+  map,
+  icon: iconURL,
+  title: "DXB",
+  });
 
-marker.addListener("click", () => {
-    infowindow.open({
-      anchor: marker,
-      map,
+dxbMarker.addListener("click", () => {
+  dxbinfowindow.open({
+  anchor: dxbMarker,
+  map,
     });
   });
-}
 
-// The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+const fraContentString = 
+'<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Frankfurt</h1>' +
+    '<div id="bodyContent">' +
+    "<p><b>Frankfurt Airport (FRA)</b>, also known as <b>Flughafen Frankfurt Main</b>, " +
+    "is one of the major ariports in Europe. The airport is the main hub for the flag " +
+    "carrier of Germany; Lufthansa. The airport is one of the most connected " +
+    "in the world, serving more than 300 direct destinations. The airport is the " +
+    "busiest in Germany and the 4th busiest in Europe. </p>" +
+    '<p>Attribution: Frankfurt Airport, <a href="https://en.wikipedia.org/wiki/Frankfurt_Airport">' +
+    "https://en.wikipedia.org/wiki/Frankfurt_Airport</a> " +
+    "(last visited January 25, 2023).</p>" +
+    "</div>" +
+    "</div>";
 
-//   const infowindow = new google.maps.InfoWindow({
-//     content: contentString,
-//     ariaLabel: "Uluru",
-//   });
+const frainfowindow = new google.maps.InfoWindow({
+  content: fraContentString,
+  ariaLabel: "Frankfurt Airport",
+  });
+const fraMarker = new google.maps.Marker({
+  position: fra,
+  map,
+  icon: iconURL,
+  title: "FRA",
+  });
 
-//   marker.addListener("click", () => {
-//     infowindow.open({
-//       anchor: marker,
-//       map,
-//     });
-//   });
-// }
+fraMarker.addListener("click", () => {
+  frainfowindow.open({
+  anchor: fraMarker,
+  map,
+    });
+  });
+
+const yulContentString = 
+'<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Montreal</h1>' +
+    '<div id="bodyContent">' +
+    "<p><b>Montréal–Trudeau International Airport (YUL)</b> or <b>Montréal–Trudeau</b>, " +
+    "is a major airport in Canada serving Montreal and surrounding areas. Of the two airports in " +
+    "Montreal, the other being Montréal–Mirabel, Montréal–Trudeau is the busiest in the province, " +
+    "making it the 4th busiest in Canada. It is one of the main gateways into Canada. The airport is " +
+    "home to Air Canada, Canada's flag carrier airline. </p>" +
+    '<p>Attribution: Montreal Airport, <a href="https://en.wikipedia.org/wiki/Montr%C3%A9al%E2%80%93Trudeau_International_Airport">' +
+    "https://en.wikipedia.org/wiki/Montréal-Trudeau_International_Airport</a> " +
+    "(last visited January 25, 2023).</p>" +
+    "</div>" +
+    "</div>";
+
+const yulinfowindow = new google.maps.InfoWindow({
+  content: yulContentString,
+  ariaLabel: "Montreal Airport",
+  });
+const yulMarker = new google.maps.Marker({
+  position: yul,
+  map,
+  icon: iconURL,
+  title: "YUL",
+  });
+
+yulMarker.addListener("click", () => {
+  yulinfowindow.open({
+  anchor: yulMarker,
+  map,
+    });
+  });
+
+const ysjContentString = 
+'<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h1 id="firstHeading" class="firstHeading">Saint John</h1>' +
+    '<div id="bodyContent">' +
+    "<p><b>Saint John Airport (YSJ)</b> is a small airport serving the city of Saint John in " +
+    "the province of New Brunswick. Despite being situated 15 km from the city's central business" +
+    "district, the airport is still the boundaries of the city. Moreover, despite being a small airport, " +
+    "the airport is designated as an airport of entry by Nav Canada and is staffed by " +
+    "Canada Border Services Agency (CBSA). Mostly, it is CANPASS flights that are served by the CBSA from this port of entry. </p>" +
+    '<p>Attribution: Saint John Airport, <a href="https://en.wikipedia.org/wiki/Saint_John_Airport">' +
+    "https://en.wikipedia.org/wiki/Saint_John_Airport</a> " +
+    "(last visited January 25, 2023).</p>" +
+    "</div>" +
+    "</div>";
+
+const ysjinfowindow = new google.maps.InfoWindow({
+  content: ysjContentString,
+  ariaLabel: "Saint John Airport",
+  });
+const ysjMarker = new google.maps.Marker({
+  position: ysj,
+  map,
+  icon: iconURL,
+  title: "YSJ",
+  });
+
+ysjMarker.addListener("click", () => {
+  ysjinfowindow.open({
+  anchor: ysjMarker,
+  map,
+    });
+  });
+ }
 
 window.initMap = initMap;
 
