@@ -28,11 +28,11 @@ Now your repository will be accessible under GitHub Pages (an HTML Web Server) a
 
 In this repository you will need to create content in this repository from the following activities:
 
-- [ ] Google MyMaps Sharkspotters tutorial. 
-- [ ] Maps - Simple HTML Map Example
-- [ ] Routes - Directions API - URL request JSON response
-- [ ] Modify Dynamic Map Clustering example to show Ontario Parks
-- [ ] Create your Story using Google Dynamic Maps (JavaScript) in the provided folder
+- [x] Google MyMaps Sharkspotters tutorial. [link here](https://francis-soriano.github.io/geom99lab1/mymaps/sharkspotters.html)
+- [x] Maps - Simple HTML Map Example [link here](https://francis-soriano.github.io/geom99lab1/services/simplemap.html)
+- [x] Routes - Directions API - URL request JSON response [link here](https://francis-soriano.github.io/geom99lab1/mydirections.md)
+- [x] Modify Dynamic Map Clustering example to show Ontario Parks [link here](https://francis-soriano.github.io/geom99lab1/clustering/ontarioparks.html)
+- [x] Create your Story using Google Dynamic Maps (JavaScript) in the provided folder [link here](https://francis-soriano.github.io/geom99lab1/story/mystory.html)
 
 > Optional Tip: You can check the above boxes by editing this MarkDown document and adding an `x` between the `[ ]`, like this: `[x]`
 
