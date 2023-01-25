@@ -23,6 +23,7 @@
     </style>
 <script>
  function initMap() {
+  // changed the pins/airports into variables for optimization purposes
     const dxb = { lat: 25.253290925785134, lng: 55.36555478073066 };
     const fra = { lat: 50.0379603540928, lng: 8.562533606281635 };
     const yul = { lat: 45.46604694658018, lng: -73.74507989720708 };
@@ -34,19 +35,42 @@
     });
     
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/polyline-simple#maps_polyline_simple-javascript
-    const flightPlanCoordinates = [
-      dxb, fra, yul, ysj
+    const firstLeg = [
+      dxb, fra
     ] ;
-    const flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
+    const secondLeg = [
+      fra, yul
+    ] ;
+    const thirdLeg = [
+      yul, ysj
+    ] ;
+    const firstFlightPath = new google.maps.Polyline({
+        path: firstLeg,
         geodesic: true,
-        strokeColor: "#FF0000",
+        strokeColor: "#FFADAD",
         strokeOpacity: 1.0,
-        strokeWeight: 2,
+        strokeWeight: 4,
     });
 
-  flightPath.setMap(map);
+    const secondFlightPath = new google.maps.Polyline({
+        path: secondLeg,
+        geodesic: true,
+        strokeColor: "#CAFFBF",
+        strokeOpacity: 1.0,
+        strokeWeight: 4,
+    });
 
+  const thirdFlightPath = new google.maps.Polyline({
+        path: thirdLeg,
+        geodesic: true,
+        strokeColor: "#BDB2FF",
+        strokeOpacity: 1.0,
+        strokeWeight: 4,
+    });
+
+  firstFlightPath.setMap(map);
+  secondFlightPath.setMap(map);
+  thirdFlightPath.setMap(map);
 
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/custom-markers
 // As well as: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
