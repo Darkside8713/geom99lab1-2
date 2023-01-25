@@ -30,7 +30,7 @@ In this repository you will need to create content in this repository from the f
 
 - [x] Google MyMaps Sharkspotters tutorial. [link here](https://francis-soriano.github.io/geom99lab1/mymaps/sharkspotters.html)
 - [x] Maps - Simple HTML Map Example [link here](https://francis-soriano.github.io/geom99lab1/services/simplemap.html)
-- [x] Routes - Directions API - URL request JSON response [link here](https://francis-soriano.github.io/geom99lab1/mydirections.md)
+- [x] Routes - Directions API - URL request JSON response [link here](https://francis-soriano.github.io/geom99lab1/services/mydirections.md)
 - [x] Modify Dynamic Map Clustering example to show Ontario Parks [link here](https://francis-soriano.github.io/geom99lab1/clustering/ontarioparks.html)
 - [x] Create your Story using Google Dynamic Maps (JavaScript) in the provided folder [link here](https://francis-soriano.github.io/geom99lab1/story/mystory.html)
 
