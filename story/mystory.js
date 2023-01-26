@@ -1,13 +1,11 @@
 function initMap() {
   // changed the pins/airports into variables for optimization purposes
-    const dxb = { lat: 25.253290925785134, lng: 55.36555478073066 };
-    const fra = { lat: 50.0379603540928, lng: 8.562533606281635 };
-    const yul = { lat: 45.46604694658018, lng: -73.74507989720708 };
-    const ysj = { lat: 45.32915634620157, lng: -65.89039652882502 };
+    const dxb = { lat: 43.2557, lng: -79.8711 };
+    const fra = { lat: 46.3430, lng: 72.5421 };
     const iconURL = { url: 'https://francis-soriano.github.io/geom99lab1/story/airport.png' }
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 3,
-      center: { lat: 43.43464856542449, lng: -27.339630669624995 },
+      zoom: 5,
+      center: { lat: 45.4215, lng: -75.6972 },
     });
     
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/examples/polyline-simple#maps_polyline_simple-javascript
@@ -36,17 +34,10 @@ function initMap() {
         strokeWeight: 4,
     });
 
-  const thirdFlightPath = new google.maps.Polyline({
-        path: thirdLeg,
-        geodesic: true,
-        strokeColor: "#BDB2FF",
-        strokeOpacity: 1.0,
-        strokeWeight: 4,
-    });
+ 
 
   firstFlightPath.setMap(map);
   secondFlightPath.setMap(map);
-  thirdFlightPath.setMap(map);
 
 // The following script is taken (and modified) from: https://developers.google.com/maps/documentation/javascript/custom-markers
 // As well as: https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
